@@ -1,460 +1,108 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DigiLove Collection | Dreamy Hamper Builder</title>
+<meta name="theme-color" content="#f7b9d1">
+<meta name="description" content="Build a dreamy custom hamper with cute little finds from DigiLove Collection.">
+<title>DigiLove Collection | Little Things, Lots of Love</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --pink: #f8dce8;
-  --pink-dark: #d8759e;
-  --yellow: #fff0a8;
-  --cream: #fffaf3;
-  --text: #503747;
-  --white: #ffffff;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  background: var(--cream);
-  color: var(--text);
-}
-header {
-  background: var(--pink);
-  text-align: center;
-  padding: 28px 16px;
-  border-bottom: 3px solid var(--yellow);
-}
-.logo {
-  font-family: Georgia, serif;
-  font-size: 28px;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-.tagline { margin: 8px 0 0; font-size: 14px; }
-.hero {
-  text-align: center;
-  padding: 32px 16px 22px;
-  background: linear-gradient(135deg, #fff0f5, #fff7cf);
-}
-.hero h1 {
-  font-family: Georgia, serif;
-  font-size: clamp(28px, 6vw, 43px);
-  margin: 0 0 12px;
-}
-.hero p { line-height: 1.6; margin: 0 auto; max-width: 520px; }
-.container { width: min(1000px, 92%); margin: 24px auto; }
-.section-title {
-  font-family: Georgia, serif;
-  font-size: 25px;
-  margin: 28px 0 14px;
-}
-.note {
-  background: var(--yellow);
-  border-radius: 14px;
-  padding: 14px;
-  line-height: 1.6;
-  font-size: 14px;
-}
-.packages, .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-  gap: 13px;
-}
-.option, .product, .summary {
-  background: white;
-  border: 1px solid #f0d9e3;
-  border-radius: 17px;
-  padding: 15px;
-  box-shadow: 0 4px 14px #7144580b;
-}
-.option { cursor: pointer; }
-.option:has(input:checked) {
-  border: 2px solid var(--pink-dark);
-  background: #fff5f9;
-}
-.option input { accent-color: var(--pink-dark); }
-.option strong { display: block; margin: 8px 0 5px; }
-.option small { line-height: 1.5; }
-.category-title {
-  font-size: 18px;
-  margin: 24px 0 12px;
-}
-.product-emoji { font-size: 29px; }
-.product-image {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  border-radius: 14px;
-  background: #fff8fb;
-  display: block;
-  margin-bottom: 10px;
-}
-.product h4 { margin: 8px 0; font-size: 16px; }
-.price { font-weight: bold; color: #b74f7e; }
-.product small { color: #7c6873; }
-.quantity {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-top: 13px;
-}
-.quantity button {
-  border: none;
-  background: var(--pink);
-  color: var(--text);
-  border-radius: 10px;
-  width: 35px;
-  height: 35px;
-  font-size: 20px;
-  cursor: pointer;
-}
-.quantity span { font-weight: bold; min-width: 20px; text-align: center; }
-.field { margin: 12px 0; }
-.field label { display: block; font-size: 14px; margin-bottom: 6px; }
-.field input, .field textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #e8cbd9;
-  border-radius: 11px;
-  font: inherit;
-  background: #fffdfd;
-}
-.summary {
-  margin: 28px 0;
-  padding: 20px;
-  background: #fff4f8;
-}
-.summary h2 { font-family: Georgia, serif; margin-top: 0; }
-.summary-line {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 10px 0;
-}
-.total {
-  border-top: 1px dashed #d8a6bc;
-  padding-top: 14px;
-  font-size: 21px;
-  font-weight: bold;
-}
-.whatsapp {
-  display: block;
-  width: 100%;
-  border: none;
-  border-radius: 14px;
-  padding: 16px;
-  background: #238c57;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
-}
-.whatsapp:hover { background: #176e43; }
-.payment-note {
-  margin-top: 15px;
-  background: var(--yellow);
-  padding: 14px;
-  border-radius: 12px;
-  font-size: 13px;
-  line-height: 1.7;
-}
-footer {
-  margin-top: 35px;
-  padding: 24px;
-  text-align: center;
-  background: var(--pink);
-  font-size: 13px;
-  line-height: 1.7;
-}
-.empty { color: #7c6873; font-size: 14px; }
+:root{--pink:#f7b9d1;--pink-deep:#d94f8b;--pink-soft:#fff0f6;--yellow:#ffe66d;--yellow-soft:#fff8cf;--cream:#fffaf5;--ink:#493344;--muted:#806b79;--line:#f2d6e2;--white:#fff;--green:#218653;--shadow:0 12px 34px rgba(130,66,96,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',Arial,sans-serif;font-size:15px}button,input,textarea{font:inherit}a{color:inherit;text-decoration:none}
+.top-strip{background:var(--yellow);text-align:center;padding:8px 12px;font-size:12px;font-weight:700;letter-spacing:.04em}
+header{background:rgba(255,250,245,.94);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)}.nav{max-width:1120px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-family:'Playfair Display',Georgia,serif;font-size:23px;font-weight:700;letter-spacing:.01em}.brand span{color:var(--pink-deep)}.brand-mark{display:inline-grid;place-items:center;width:27px;height:27px;margin-right:7px;border-radius:9px;background:linear-gradient(145deg,#f7b9d1,#ffe66d);color:#7b3659;font-family:Georgia,serif;font-size:17px;vertical-align:middle;box-shadow:0 2px 8px #d94f8b22}.navlinks{display:flex;gap:22px;align-items:center;font-size:13px;font-weight:700;color:#684e5e}.navlinks a:hover{color:var(--pink-deep)}.nav-cta{background:var(--ink);color:white;padding:10px 16px;border-radius:999px;font-size:12px;font-weight:700}
+.hero{position:relative;overflow:hidden;text-align:center;padding:65px 20px 58px;background:radial-gradient(circle at 15% 20%,#fff 0 5%,transparent 5.5%),linear-gradient(125deg,#ffe2ee 0%,#fff0cf 52%,#fff7f7 100%)}.hero:before,.hero:after{content:'♡';position:absolute;color:#e88bb2;opacity:.48;font-size:46px}.hero:before{left:8%;top:24px;transform:rotate(-18deg)}.hero:after{right:9%;bottom:22px;transform:rotate(16deg)}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#a34c75}.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,6vw,58px);line-height:1.08;margin:12px auto;max-width:760px}.hero h1 em{font-style:normal;color:var(--pink-deep)}.hero p{max-width:520px;margin:0 auto 23px;color:#705b69;line-height:1.75}.primary-btn,.secondary-btn{display:inline-flex;justify-content:center;align-items:center;border:0;border-radius:999px;padding:13px 21px;font-weight:800;cursor:pointer}.primary-btn{background:var(--pink-deep);color:white;box-shadow:0 7px 18px #d94f8b35}.secondary-btn{background:var(--yellow);color:var(--ink)}
+.trust-row{max-width:950px;margin:0 auto;padding:20px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}.trust-row div{font-size:12px;font-weight:700;color:#755e6d}.trust-row b{display:block;font-size:19px;margin-bottom:4px}
+.container{width:min(1080px,92%);margin:0 auto}.section{padding:34px 0 18px;scroll-margin-top:85px}.section-head{text-align:center;margin-bottom:22px}.kicker{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:#b65c83;font-weight:800}.section-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,4vw,36px);margin:7px 0;color:var(--ink)}.section-sub{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
+.how-card{background:var(--yellow-soft);border:1px solid #f4e5a3;border-radius:20px;padding:17px 20px;line-height:1.7;font-size:13px}.how-card strong{color:#7d5266}.pack-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.pack-option{display:block;position:relative;background:white;border:1.5px solid var(--line);border-radius:18px;padding:17px 15px;min-height:138px;cursor:pointer;transition:.18s;box-shadow:0 5px 18px #9c54700b}.pack-option:has(input:checked){border-color:var(--pink-deep);background:#fff3f8;box-shadow:0 0 0 3px #f7b9d144}.pack-option input{accent-color:var(--pink-deep)}.pack-emoji{font-size:25px;display:block;margin:8px 0}.pack-option strong{display:block;font-size:13px;margin-bottom:5px}.pack-option small{display:block;color:var(--muted);font-size:11px;line-height:1.5}.pack-price{font-weight:800;color:var(--pink-deep);margin-top:8px}
+.category{margin:28px 0 34px;scroll-margin-top:95px}.category-heading{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-family:'Playfair Display',Georgia,serif;font-size:22px}.category-heading:after{content:'';height:1px;background:var(--line);flex:1}.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.product{background:white;border:1px solid #f0dce5;border-radius:19px;padding:11px;box-shadow:0 5px 20px rgba(130,66,96,.045);display:flex;flex-direction:column;min-width:0;transition:transform .18s,box-shadow .18s}.product:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.gallery{position:relative;overflow:hidden;border-radius:14px;background:#fff5f8;aspect-ratio:1/1;touch-action:pan-y;scroll-snap-type:x mandatory;display:flex;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain}.gallery::-webkit-scrollbar{display:none}.gallery img{width:100%;height:100%;object-fit:contain;flex:0 0 100%;scroll-snap-align:center;padding:8px;display:block}.gallery.image-missing:after{content:"Photo missing — upload the IMAGES folder";position:absolute;inset:0;display:grid;place-items:center;padding:16px;text-align:center;color:#9a5878;font-size:11px;font-weight:700;background:#fff5f8}.gallery-count{position:absolute;right:8px;bottom:8px;background:#493344bf;color:white;border-radius:99px;padding:4px 8px;font-size:10px;font-weight:700;pointer-events:none}.product-info{padding:12px 4px 2px;display:flex;flex-direction:column;flex:1}.product h4{font-size:14px;line-height:1.35;margin:0 0 7px;min-height:38px}.price-row{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:10px}.price{font-weight:800;color:#bd3f78;font-size:15px}.tiny-note{font-size:9px;color:#9a8490}.quantity{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;background:#fff2f7;border-radius:12px;padding:5px}.quantity button{border:0;background:white;color:#8d3e65;width:31px;height:31px;border-radius:9px;font-size:19px;font-weight:600;cursor:pointer;box-shadow:0 1px 4px #7c3d5c18}.quantity span{font-weight:800;font-size:13px;min-width:20px;text-align:center}.qty-label{font-size:10px;color:var(--muted);margin-right:auto;padding-left:4px}
+.category-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:0 0 20px}.category-nav a{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 13px;font-size:11px;font-weight:700;color:#75586a}.category-nav a:hover{background:var(--pink-soft);border-color:var(--pink)}
+.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin:12px 0}.field label{display:block;font-size:12px;font-weight:700;margin-bottom:7px}.field input,.field textarea{width:100%;border:1px solid #e9cfdb;border-radius:12px;padding:13px;background:white;color:var(--ink);outline:none}.field input:focus,.field textarea:focus{border-color:var(--pink-deep);box-shadow:0 0 0 3px #f7b9d144}.field textarea{resize:vertical;min-height:94px}.summary{background:linear-gradient(145deg,#fff0f6,#fff9e6);border:1px solid #f1d8e3;border-radius:22px;padding:22px;margin:25px 0 38px;box-shadow:var(--shadow)}.summary h2{font-family:'Playfair Display',Georgia,serif;font-size:26px;margin:0 0 14px}.summary-line{display:flex;justify-content:space-between;gap:14px;margin:10px 0;font-size:13px}.summary-line span:last-child{font-weight:700;white-space:nowrap}.total{border-top:1px dashed #d7a9bf;padding-top:15px;margin-top:15px;font-size:19px;font-weight:800}.total span:last-child{color:#b73572}.empty{font-size:12px;color:var(--muted);line-height:1.6}.whatsapp{display:block;width:100%;margin-top:17px;border:0;border-radius:14px;padding:16px;background:var(--green);color:white;font-weight:800;font-size:15px;cursor:pointer}.whatsapp:hover{background:#176b42}.payment-note{margin-top:13px;background:#fff8d7;border:1px solid #f2e6a9;padding:14px;border-radius:13px;font-size:11px;line-height:1.75;color:#665a42}.payment-note.pink{background:#fff2f7;border-color:#f3d7e3;color:#725969}.footer{background:#ffe3ee;margin-top:35px;text-align:center;padding:28px 16px;color:#725366;font-size:12px;line-height:1.8}.footer b{font-family:'Playfair Display',Georgia,serif;font-size:19px;color:#543447}.sticker{color:#d94f8b}
+@media(max-width:820px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.pack-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.navlinks{gap:12px}.trust-row{max-width:650px}}
+@media(max-width:560px){.nav{padding:12px 15px}.brand{font-size:19px}.navlinks a:not(.nav-cta){display:none}.nav-cta{padding:9px 13px}.hero{padding:51px 17px 45px}.hero:before{left:3%;font-size:30px}.hero:after{right:4%;font-size:30px}.trust-row{padding:17px 10px;gap:4px}.trust-row div{font-size:10px}.trust-row b{font-size:17px}.container{width:92%}.section{padding-top:27px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.product{padding:8px;border-radius:16px}.product h4{font-size:12px;min-height:34px}.price{font-size:14px}.tiny-note{font-size:8px}.quantity{gap:5px}.quantity button{width:29px;height:29px}.details-grid{grid-template-columns:1fr;gap:0}.summary{padding:17px}.category-heading{font-size:20px}.gallery-count{font-size:9px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">DigiLove Collection ♡</div>
-  <p class="tagline">little things, lots of love 🎀</p>
-</header>
-
-<section class="hero">
-  <h1>Create Your Dreamy Hamper</h1>
-  <p>Pick your favourite little things, build a hamper full of love
-  and make it totally yours. ♡</p>
-</section>
-
+<div class="top-strip">♡ LITTLE THINGS, LOTS OF LOVE · MADE TO MAKE SOMEONE SMILE ♡</div>
+<header><nav class="nav"><a class="brand" href="#home"><span class="brand-mark">D</span>DigiLove <span>Collection</span> ♡</a><div class="navlinks"><a href="#shop">Shop</a><a href="#packaging">Packaging</a><a href="#details">Your details</a><a class="nav-cta" href="#shop">Build a hamper 🎀</a></div></nav></header>
+<section class="hero" id="home"><div class="eyebrow">A little corner of happy things</div><h1>Make it cute.<br><em>Make it yours.</em></h1><p>Pick your favourite little finds, choose your packaging and create a hamper that feels just right. For someone special — or yourself. ♡</p><a class="primary-btn" href="#shop">Start creating your hamper ✨</a></section>
+<div class="trust-row"><div><b>🎀</b>Cute little finds</div><div><b>💌</b>Personalised orders</div><div><b>♡</b>Packed with love</div></div>
 <main class="container">
-  <div class="note">
-    🎀 <strong>How it works:</strong> Choose your packaging, select
-    your favourite products and quantities, then send your order
-    to us on WhatsApp. We'll confirm availability and payment with you.
-  </div>
-
-  <h2 class="section-title">01. Choose your packaging ♡</h2>
-  <div class="packages" id="packages"></div>
-
-  <h2 class="section-title">02. Pick your favourites 🎀</h2>
-  <p class="empty">Choose as many products as you like. You can leave
-  any category empty!</p>
-  <div id="catalogue"></div>
-
-  <h2 class="section-title">03. Your details 💌</h2>
-  <div class="field">
-    <label for="customerName">Your name *</label>
-    <input id="customerName" placeholder="Enter your name" maxlength="80">
-  </div>
-  <div class="field">
-    <label for="customerCity">City / delivery location *</label>
-    <input id="customerCity" placeholder="Enter your city" maxlength="100">
-  </div>
-  <div class="field">
-    <label for="customerNotes">Personalised note or special request (optional)</label>
-    <textarea id="customerNotes" rows="3" maxlength="500"
-    placeholder="Any colour preference, gift note or request?"></textarea>
-  </div>
-
-  <section class="summary">
-    <h2>Your dreamy hamper ✨</h2>
-    <div id="orderSummary"><p class="empty">Your selected products will appear here.</p></div>
-    <div class="summary-line total">
-      <span>Estimated total</span>
-      <span id="totalPrice">₹0</span>
-    </div>
-    <p class="empty">Delivery charges, if applicable, will be confirmed on WhatsApp.</p>
-
-    <button class="whatsapp" onclick="sendOrder()">
-      Send My Order on WhatsApp 💌
-    </button>
-
-    <div class="payment-note">
-      <strong>♡ Please read before ordering</strong><br>
-      Your order will be confirmed on WhatsApp only after product
-      availability is checked and payment is received and verified.
-      We will share payment details with you on WhatsApp.
-      <strong>COD is not available.</strong> Sending an order request
-      does not mean your order is confirmed.
-    </div>
-    
-<div class="payment-note">
-  <strong>🎀 A Little Note Before You Order</strong><br>
-  Product images are for reference purposes only. Actual colour, design, pattern or appearance may vary slightly depending on available stock. If an exact design is unavailable, a similar style may be offered. We will confirm the available design with you before finalising your order. 💌
-</div>
-
-  </section>
+<section class="section"><div class="how-card"><strong>How it works:</strong> Choose your packaging, add products with the + buttons, enter your details and send your request on WhatsApp. We’ll check availability and confirm the final details with you before payment.</div></section>
+<section class="section" id="packaging"><div class="section-head"><div class="kicker">the finishing touch</div><h2 class="section-title">Choose your packaging ♡</h2><p class="section-sub">Pick the little wrap that makes your hamper feel extra special.</p></div><div class="pack-grid" id="packages"></div></section>
+<section class="section" id="shop"><div class="section-head"><div class="kicker">your happy little picks</div><h2 class="section-title">Shop the collection 🎀</h2><p class="section-sub">Swipe through product photos to see each little detail.</p></div><div class="category-nav"><a href="#necklaces">Necklaces</a><a href="#hair">Hair accessories</a><a href="#earrings">Earrings</a><a href="#bracelets">Bracelets</a><a href="#rings">Rings</a><a href="#teddies">Teddies</a></div><div id="catalogue"></div></section>
+<section class="section" id="details"><div class="section-head"><div class="kicker">almost yours</div><h2 class="section-title">Your details 💌</h2><p class="section-sub">Tell us where to send your little bundle of happiness.</p></div><div class="details-grid"><div class="field"><label for="customerName">Your name *</label><input id="customerName" placeholder="Enter your name" maxlength="80" autocomplete="name"></div><div class="field"><label for="customerCity">City / delivery location *</label><input id="customerCity" placeholder="Enter your city" maxlength="100" autocomplete="address-level2"></div></div><div class="field"><label for="customerNotes">Personalised note or special request (optional)</label><textarea id="customerNotes" maxlength="500" placeholder="Any colour preference, gift note or little request?"></textarea></div></section>
+<section class="summary"><h2>Your dreamy hamper <span class="sticker">✿</span></h2><div id="orderSummary"><p class="empty">Your selected products will appear here.</p></div><div class="summary-line total"><span>Estimated total</span><span id="totalPrice">₹0</span></div><p class="empty">Delivery charges, if applicable, will be confirmed on WhatsApp.</p><button class="whatsapp" type="button" onclick="sendOrder()">Send my order on WhatsApp 💌</button><div class="payment-note"><strong>♡ Please read before ordering</strong><br>Your order will be confirmed on WhatsApp only after product availability is checked and payment is received and verified. We will share payment details with you on WhatsApp. <strong>COD is not available.</strong> Sending an order request does not mean your order is confirmed.</div><div class="payment-note pink"><strong>🎀 A little note before you order</strong><br>Product images are for reference purposes only. Actual colour, design, pattern or appearance may vary slightly depending on available stock. If an exact design is unavailable, a similar style may be offered. We will confirm the available design with you before finalising your order.</div></section>
 </main>
-
-<footer>
-  Made with love by DigiLove Collection ♡<br>
-  For the ones you love & the love you owe yourself 🎀
-</footer>
-
+<footer class="footer"><b>DigiLove Collection ♡</b><br>For the ones you love & the love you owe yourself 🎀<br>Made with love, just for you.</footer>
 <script>
-// Replace this with your WhatsApp Business number.
-// Use country code + number, without +, spaces or dashes.
-const WHATSAPP_NUMBER = "916394909927";
-
+'use strict';
+const WHATSAPP_NUMBER = '916394909927';
 const packaging = [
-  { id: "none", name: "Products only", price: 0,
-    description: "No extra hamper packaging" },
-  { id: "basic", name: "Cute basic packing", price: 49,
-    description: "Simple gift-ready packaging" },
-  { id: "box", name: "Gift box hamper", price: 79,
-    description: "A box with decorative filling" },
-  { id: "premium", name: "Premium dreamy hamper", price: 199,
-    description: "Extra-special decorative packaging" }
+ {id:'none',name:'Products only',price:0,emoji:'♡',description:'No extra hamper packaging'},
+ {id:'basic',name:'Cute basic packing',price:49,emoji:'🎀',description:'Simple gift-ready packaging'},
+ {id:'box',name:'Gift box hamper',price:79,emoji:'🎁',description:'A box with decorative filling'},
+ {id:'premium',name:'Premium dreamy hamper',price:199,emoji:'✨',description:'Extra-special decorative packaging'}
 ];
-
+// All image names below match the uploaded IMAGES folder exactly.
 const catalogue = [
-  {
-    category: "Necklaces",
-    items: [
-      { id: "flower-necklace", name: "Flower Necklace", emoji: "🌸", price: 99, image: "Flower necklace.jpeg" },
-      { id: "neckpiece", name: "Neckpiece", emoji: "💗", price: 69, image: "neckpiece.jpeg" }
-    ]
-  },
-  {
-    category: "Claw Clips & Hair Accessories",
-    items: [
-      { id: "hearty-claw-clip", name: "Hearty Claw Clip", emoji: "🎀", price: 59, image: "Hearty claw clip.jpeg" },
-      { id: "bow-claw-clip", name: "Bow Claw Clip", emoji: "🎀", price: 29, image: "bow claw clip.jpeg" },
-      { id: "hair-clips", name: "Hair Clips", emoji: "🌷", price: 89, image: "hair clips.jpeg" },
-      { id: "scrunchies", name: "Scrunchies", emoji: "🎀", price: 69, image: "scrunchies.jpeg" },
-      { id: "rose-claw-clip", name: "Rose Claw Clip", emoji: "🌹", price: 49, image: "Rose claw clip.jpeg" }
-    ]
-  },
-  {
-    category: "Earrings",
-    items: [
-      { id: "earring-1", name: "Earring 1", emoji: "✨", price: 79, image: "Earring 1.jpeg" },
-      { id: "earring-2", name: "Earring 2", emoji: "💗", price: 79, image: "Earring 2.jpeg" }
-    ]
-  },
-  {
-    category: "Bracelets",
-    items: [
-      { id: "crystal-bracelet", name: "Crystal Bracelet", emoji: "💎", price: 89, image: "crystal bracelet.jpeg" }
-    ]
-  },
-  {
-    category: "Rings",
-    items: [
-      { id: "heart-ring-blue", name: "Blue Heart Ring", emoji: "💙", price: 49, image: "heart ring blue.jpeg" },
-      { id: "heart-ring-red", name: "Red Heart Ring", emoji: "❤️", price: 49, image: "heart ring red.jpeg" },
-      { id: "evil-eye-ring", name: "Evil Eye Ring", emoji: "🧿", price: 29, image: "evil eye ring.jpeg" }
-    ]
-  }
+ {id:'necklaces',category:'Necklaces',items:[
+  {id:'flower-necklace',name:'Flower Necklace',price:85,images:['flower-necklace.jpeg']},
+  {id:'neckpiece',name:'Neckpiece',price:79,images:['neckpiece.jpeg']}
+ ]},
+ {id:'hair',category:'Claw Clips & Hair Accessories',items:[
+  {id:'hearty-claw-clip',name:'Hearty Claw Clip',price:45,images:['hearty-claw-clip.jpeg']},
+  {id:'bow-claw-clip',name:'Bow Claw Clip',price:19,images:['bow-claw-clip.jpeg']},
+  {id:'hair-clips',name:'Hair Clips',price:79,images:['hair-clips.jpeg']},
+  {id:'scrunchies',name:'Scrunchies',price:49,images:['scrunchies.jpeg']},
+  {id:'rose-claw-clip',name:'Rose Claw Clip',price:39,images:['rose-claw-clip.jpeg']},
+  {id:'leaf-claw-clip',name:'Leaf Claw Clip',price:49,images:['leaf-claw-clip-01.jpeg','leaf-claw-clip-02.jpeg','leaf-claw-clip-03.jpeg']},
+  {id:'rose-clips',name:'Rose Clips',price:29,images:['rose-clips-01.jpeg','rose-clips-02.jpeg']}
+ ]},
+ {id:'earrings',category:'Earrings',items:[
+  {id:'earring-1',name:'Earring 1',price:49,images:['earring-01.jpeg']},
+  {id:'earring-2',name:'Earring 2',price:49,images:['earring-02.jpeg']},
+  {id:'flower-bow-earring',name:'Flower + Bow Earring',price:55,images:['flower-bow-earring-01.jpeg','flower-bow-earring-02.jpeg']}
+ ]},
+ {id:'bracelets',category:'Bracelets & Bangles',items:[
+  {id:'crystal-bracelet',name:'Crystal Bracelet',price:79,images:['crystal-bracelet.jpeg']},
+  {id:'bangles',name:'Bangles',price:100,images:['bangles-01.jpeg','bangles-02.jpeg']},
+  {id:'bracelet',name:'Bracelet',price:40,images:['bracelet-01.jpeg','bracelet-02.jpeg']},
+  {id:'multicolor-bracelet',name:'Multicolor Bracelet',price:40,images:['multicolor-bracelet.jpeg']}
+ ]},
+ {id:'rings',category:'Rings',items:[
+  {id:'crystal-ad-ring',name:'Crystal AD Ring',price:40,images:['crystal-ad-ring-01.jpeg','crystal-ad-ring-02.jpeg']},
+  {id:'heart-ring-blue',name:'Blue Heart Ring',price:39,images:['blue-heart-ring.jpeg']},
+  {id:'heart-ring-red',name:'Red Heart Ring',price:39,images:['red-heart-ring.jpeg']},
+  {id:'evil-eye-ring',name:'Evil Eye Ring',price:25,images:['evil-eye-ring.jpeg']}
+ ]},
+ {id:'teddies',category:'Teddies',items:[
+  {id:'teddy-medium',name:'Teddy Medium',price:120,images:['teddy-medium-01.jpeg','teddy-medium-02.jpeg','teddy-medium-03.jpeg','teddy-medium-04.jpeg']},
+  {id:'teddy-small',name:'Teddy Small',price:60,images:['teddy-small-01.jpeg','teddy-small-02.jpeg']}
+ ]}
 ];
-// Product quantities are stored here.
-const quantities = {};
-let selectedPackaging = "none";
-
-function money(value) {
-  return "₹" + value.toLocaleString("en-IN");
+const quantities = Object.create(null);
+let selectedPackaging = 'none';
+const money = value => '₹' + Number(value).toLocaleString('en-IN');
+function renderPackaging(){
+ document.getElementById('packages').innerHTML=packaging.map(p=>`<label class="pack-option"><input type="radio" name="packaging" value="${p.id}" ${p.id===selectedPackaging?'checked':''} onchange="choosePackaging('${p.id}')"><span class="pack-emoji">${p.emoji}</span><strong>${p.name}</strong><small>${p.description}</small><div class="pack-price">${money(p.price)}</div></label>`).join('');
 }
-
-function renderPackaging() {
-  document.getElementById("packages").innerHTML = packaging.map(p => `
-    <label class="option">
-      <input type="radio" name="packaging" value="${p.id}"
-        ${p.id === selectedPackaging ? "checked" : ""}
-        onchange="choosePackaging('${p.id}')">
-      <strong>${p.name}</strong>
-      <div class="price">${money(p.price)}</div>
-      <small>${p.description}</small>
-    </label>
-  `).join("");
+function renderCatalogue(){
+ document.getElementById('catalogue').innerHTML=catalogue.map(group=>`<section class="category" id="${group.id}"><h3 class="category-heading">${group.category}</h3><div class="products">${group.items.map(p=>`<article class="product"><div class="gallery" data-gallery="${p.id}" aria-label="Swipe to view ${p.name} photos">${p.images.map((img,i)=>`<img src="IMAGES/${encodeURIComponent(img)}" alt="${p.name} photo ${i+1}" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('image-missing');this.parentElement.setAttribute('data-missing-image',${JSON.stringify(img)})">`).join('')}${p.images.length>1?`<span class="gallery-count">1 / ${p.images.length} · swipe</span>`:''}</div><div class="product-info"><h4>${p.name}</h4><div class="price-row"><span class="price">${money(p.price)}</span><span class="tiny-note">per piece</span></div><div class="quantity"><button type="button" aria-label="Remove one ${p.name}" onclick="changeQty('${p.id}',-1)">−</button><span class="qty-label">Qty</span><span id="qty-${p.id}">0</span><button type="button" aria-label="Add one ${p.name}" onclick="changeQty('${p.id}',1)">+</button></div></div></article>`).join('')}</div></section>`).join('');
+ document.querySelectorAll('.gallery').forEach(g=>g.addEventListener('scroll',()=>{const count=g.querySelectorAll('img').length;if(count<2)return;const index=Math.round(g.scrollLeft/g.clientWidth)+1;const badge=g.querySelector('.gallery-count');if(badge)badge.textContent=`${index} / ${count} · swipe`;},{passive:true}));
 }
-
-function renderCatalogue() {
-  document.getElementById("catalogue").innerHTML = catalogue.map(group => `
-    <section>
-      <h3 class="category-title">${group.category}</h3>
-      <div class="products">
-        ${group.items.map(p => `
-          <article class="product">
-            ${p.image
-  ? `<img class="product-image" src="IMAGES/${p.image}" alt="${p.name}" loading="lazy">`
-  : `<div class="product-emoji">${p.emoji}</div>`}
-            <h4>${p.name}</h4>
-            <div class="price">${money(p.price)}</div>
-            <small>Demo price — confirm stock before payment</small>
-            <div class="quantity">
-              <button type="button" aria-label="Remove one ${p.name}"
-                onclick="changeQty('${p.id}', -1)">−</button>
-              <span id="qty-${p.id}">${quantities[p.id] || 0}</span>
-              <button type="button" aria-label="Add one ${p.name}"
-                onclick="changeQty('${p.id}', 1)">+</button>
-            </div>
-          </article>
-        `).join("")}
-      </div>
-    </section>
-  `).join("");
-}
-
-function choosePackaging(id) {
-  selectedPackaging = id;
-  updateSummary();
-}
-
-function changeQty(id, amount) {
-  quantities[id] = Math.max(0, (quantities[id] || 0) + amount);
-  const label = document.getElementById("qty-" + id);
-  if (label) label.textContent = quantities[id];
-  updateSummary();
-}
-
-function getSelectedItems() {
-  const selected = [];
-  catalogue.forEach(group => {
-    group.items.forEach(p => {
-      const qty = quantities[p.id] || 0;
-      if (qty > 0) selected.push({ ...p, qty });
-    });
-  });
-  return selected;
-}
-
-function getPackaging() {
-  return packaging.find(p => p.id === selectedPackaging);
-}
-
-function updateSummary() {
-  const items = getSelectedItems();
-  const pack = getPackaging();
-  const subtotal = items.reduce((sum, p) => sum + p.price * p.qty, 0);
-  const total = subtotal + pack.price;
-
-  let html = `
-    <div class="summary-line">
-      <span>${pack.name}</span><span>${money(pack.price)}</span>
-    </div>`;
-
-  if (items.length === 0) {
-    html += '<p class="empty">Add products using the + buttons above.</p>';
-  } else {
-    items.forEach(p => {
-      html += `<div class="summary-line">
-        <span>${p.name} × ${p.qty}</span>
-        <span>${money(p.price * p.qty)}</span>
-      </div>`;
-    });
-  }
-
-  document.getElementById("orderSummary").innerHTML = html;
-  document.getElementById("totalPrice").textContent = money(total);
-}
-
-function sendOrder() {
-  const name = document.getElementById("customerName").value.trim();
-  const city = document.getElementById("customerCity").value.trim();
-  const notes = document.getElementById("customerNotes").value.trim();
-  const items = getSelectedItems();
-  const pack = getPackaging();
-
-  if (!name || !city) {
-    alert("Please enter your name and city first. ♡");
-    return;
-  }
-  if (items.length === 0) {
-    alert("Please add at least one product to your hamper. 🎀");
-    return;
-  }
-  if (!/^91\d{10}$/.test(WHATSAPP_NUMBER)) {
-    alert("Website setup needed: add your 10-digit WhatsApp Business number in the code first.");
-    return;
-  }
-
-  const subtotal = items.reduce((sum, p) => sum + p.price * p.qty, 0);
-  const total = subtotal + pack.price;
-
-  let message = `Hello DigiLove Collection! 🎀\n\nI'd like to request a custom hamper.\n\n`;
-  message += `Name: ${name}\nCity: ${city}\n\n`;
-  message += `PACKAGING\n${pack.name}: ${money(pack.price)}\n\n`;
-  message += `MY PRODUCTS\n`;
-  items.forEach(p => {
-    message += `• ${p.name} × ${p.qty} = ${money(p.price * p.qty)}\n`;
-  });
-  message += `\nProducts subtotal: ${money(subtotal)}\n`;
-  message += `Packaging: ${money(pack.price)}\n`;
-  message += `Estimated total (delivery excluded): ${money(total)}\n`;
-  if (notes) message += `\nSpecial request: ${notes}\n`;
-  message += `\nPlease confirm product availability and final delivery charges.\n`;
-  message += `I understand that my order is confirmed only after WhatsApp confirmation and payment verification. COD is not available.`;
-
-  const url = "https://wa.me/" + WHATSAPP_NUMBER +
-    "?text=" + encodeURIComponent(message);
-  window.open(url, "_blank");
-}
-
-renderPackaging();
-renderCatalogue();
-updateSummary();
+function choosePackaging(id){selectedPackaging=id;updateSummary();}
+function changeQty(id,amount){quantities[id]=Math.max(0,(quantities[id]||0)+amount);const el=document.getElementById('qty-'+id);if(el)el.textContent=quantities[id];updateSummary();}
+function getSelectedItems(){const selected=[];catalogue.forEach(group=>group.items.forEach(p=>{const qty=quantities[p.id]||0;if(qty>0)selected.push({...p,qty});}));return selected;}
+function getPackaging(){return packaging.find(p=>p.id===selectedPackaging)||packaging[0];}
+function updateSummary(){const items=getSelectedItems(),pack=getPackaging();const subtotal=items.reduce((s,p)=>s+p.price*p.qty,0),total=subtotal+pack.price;let html=`<div class="summary-line"><span>${pack.name}</span><span>${money(pack.price)}</span></div>`;if(!items.length)html+='<p class="empty">Add products using the + buttons above.</p>';else items.forEach(p=>{html+=`<div class="summary-line"><span>${p.name} × ${p.qty}</span><span>${money(p.price*p.qty)}</span></div>`;});document.getElementById('orderSummary').innerHTML=html;document.getElementById('totalPrice').textContent=money(total);}
+function sendOrder(){const name=document.getElementById('customerName').value.trim(),city=document.getElementById('customerCity').value.trim(),notes=document.getElementById('customerNotes').value.trim(),items=getSelectedItems(),pack=getPackaging();if(!name||!city){alert('Please enter your name and city first. ♡');return;}if(!items.length){alert('Please add at least one product to your hamper. 🎀');return;}if(!/^91\d{10}$/.test(WHATSAPP_NUMBER)){alert('Website setup needed: please check the WhatsApp number in the website code.');return;}const subtotal=items.reduce((s,p)=>s+p.price*p.qty,0),total=subtotal+pack.price;let message='Hello DigiLove Collection! 🎀\n\nI would like to request a custom hamper.\n\n';message+=`Name: ${name}\nCity: ${city}\n\nPACKAGING\n${pack.name}: ${money(pack.price)}\n\nMY PRODUCTS\n`;items.forEach(p=>{message+=`• ${p.name} × ${p.qty} = ${money(p.price*p.qty)}\n`;});message+=`\nProducts subtotal: ${money(subtotal)}\nPackaging: ${money(pack.price)}\nEstimated total (delivery excluded): ${money(total)}\n`;if(notes)message+=`\nSpecial request: ${notes}\n`;message+='\nPlease confirm product availability and final delivery charges.\nI understand that my order is confirmed only after WhatsApp confirmation and payment verification. COD is not available.';const url='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(message);window.open(url,'_blank','noopener,noreferrer');}
+renderPackaging();renderCatalogue();updateSummary();
 </script>
 </body>
 </html>
